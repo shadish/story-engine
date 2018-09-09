@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/shadish/story-engine/issues"
   },
-  "homepage": "https://github.com/shadish/story-engine#readme"
+  "homepage": "https://github.com/shadish/story-engine#readme",
+  "devDependencies": {
+    "express": "^4.16.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
 }

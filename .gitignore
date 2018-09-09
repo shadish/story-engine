@@ -1,1 +1,18 @@
-**/*.log
+# Webpack output
+dist/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# macOS thumbnail files
+**/.DS_Store
+
+# (temporarily) ignore package-lock.json
+package-lock.json
