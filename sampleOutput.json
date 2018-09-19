@@ -1,0 +1,22 @@
+{
+  "characters": {
+    "foo": {
+      "INT": 5,
+      "DEX": 11,
+      "STR": 15,
+      "WIS": 12,
+      "CON": 16,
+      "CHR": 16
+    },
+    "bar": {
+      "INT": 14,
+      "DEX": 9,
+      "STR": 8,
+      "WIS": 10,
+      "CON": 5,
+      "CHR": 16
+    }
+  },
+  "wits": true,
+  "winner": "bar"
+}
