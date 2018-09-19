@@ -8,6 +8,28 @@ const getRandomArbitrary = (min, max) => {
 
 
 const getResponse = () => {
+	const chars = {
+		foo: getCharacter(),
+		bar: getCharacter()
+	}
+
+	const wits = getRandomArbitrary(0,9) % 2 == 0
+
+	let winner 
+	if(wits) {
+		winner = chars.foo.INT > chars.bar.INT ? 'foo' : 'bar'
+	} else {
+		winner = chars.foo.STR > chars.bar.STR ? 'foo' : 'bar'
+	}
+
+	return {
+		characters: chars,
+		wits,
+		winner
+	}
+}
+
+const getCharacter = () => {
 	return {
 		INT: getRandomArbitrary(3,18),
 		DEX: getRandomArbitrary(3,18),
