@@ -30,7 +30,7 @@ const generateGarg = () => {
 			+ garg.femaleNames.prefixConsonants[i]
 			+ garg.femaleNames.prefixSyllables[i]
 			+ ' '
-			+ sur + '<br>'
+			+ sur
 
 		results.push(rando)
 	}
