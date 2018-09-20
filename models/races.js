@@ -16,7 +16,13 @@ const garg = {
 }
 
 const generateGarg = () => {
-	return garg
+	const results = []
+	for (let i = 0; i < 10; i++) {
+		results.push('torb')
+	}
+	return results
 }
+
+document.write(generateGarg())
 
 module.exports = { generateGarg }
