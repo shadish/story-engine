@@ -32,13 +32,9 @@ const generateGarg = () => {
 			+ ' '
 			+ sur + '<br>'
 
-		console.log(sur)
-
 		results.push(rando)
 	}
 	return results
 }
-
-document.write('<div>' + generateGarg() + '</div>')
 
 //module.exports = { generateGarg }
