@@ -1,5 +1,4 @@
 const garg = {
-	habitat: 'subterra',
 	surname: {
 		prefixConsonants: ['M', 'Mr', 'K', 'Kr', 'T', 'G', 'Gr', 'Ch', 'Chr', 'R'],
 		prefixSyllables: ['or', 'ut', 'ol', 'ul', 'orb', 'uf', 'orf', 'ob', 'ur'],
@@ -17,12 +16,29 @@ const garg = {
 
 const generateGarg = () => {
 	const results = []
-	for (let i = 0; i < 10; i++) {
-		results.push('torb')
+	for (let i = 0; i < 4; i++) {
+		const sur = garg.surname.prefixConsonants[i]
+			+ garg.surname.prefixSyllables[i]
+			+ garg.surname.suffixes[i]
+
+		const rando =
+			garg.maleNames.prefixes[i]
+			+ garg.maleNames.suffixes[i]
+			+ ' '
+			+ sur
+			+ ' and '
+			+ garg.femaleNames.prefixConsonants[i]
+			+ garg.femaleNames.prefixSyllables[i]
+			+ ' '
+			+ sur + '<br>'
+
+		console.log(sur)
+
+		results.push(rando)
 	}
 	return results
 }
 
-document.write(generateGarg())
+document.write('<div>' + generateGarg() + '</div>')
 
-module.exports = { generateGarg }
+//module.exports = { generateGarg }
