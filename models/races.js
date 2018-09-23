@@ -1,3 +1,8 @@
+const randFromArray = (a) => {
+	const i = Math.floor(Math.random() * (a.length));
+	return a[i];
+}
+
 const garg = {
 	surname: {
 		prefixConsonants: ['M', 'Mr', 'K', 'Kr', 'T', 'G', 'Gr', 'Ch', 'Chr', 'R'],
@@ -16,19 +21,19 @@ const garg = {
 
 const generateGarg = () => {
 	const results = []
-	for (let i = 0; i < 4; i++) {
-		const sur = garg.surname.prefixConsonants[i]
-			+ garg.surname.prefixSyllables[i]
-			+ garg.surname.suffixes[i]
+	for (let i = 0; i < 20; i++) {
+		const sur = randFromArray(garg.surname.prefixConsonants)
+			+ randFromArray(garg.surname.prefixSyllables)
+			+ randFromArray(garg.surname.suffixes)
 
 		const rando =
-			garg.maleNames.prefixes[i]
-			+ garg.maleNames.suffixes[i]
+			randFromArray(garg.maleNames.prefixes)
+			+ randFromArray(garg.maleNames.suffixes)
 			+ ' '
 			+ sur
 			+ ' and '
-			+ garg.femaleNames.prefixConsonants[i]
-			+ garg.femaleNames.prefixSyllables[i]
+			+ randFromArray(garg.femaleNames.prefixConsonants)
+			+ randFromArray(garg.femaleNames.prefixSyllables)
 			+ ' '
 			+ sur
 
