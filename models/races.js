@@ -1,4 +1,8 @@
-const randFromArray = (a) => {
+const randomInt = (max) => {
+	return Math.floor(Math.random() * Math.floor(max));
+}
+
+const randomFromArray = (a) => {
 	const i = Math.floor(Math.random() * (a.length));
 	return a[i];
 }
@@ -14,26 +18,31 @@ const garg = {
 		suffixes: ['on', 'l', 'r', 'ru', 'ru', 'ko', 'tu', 'fo', 'fu', 'gu', 'lu', 'f']
 	},
 	femaleNames: {
-		prefixConsonants: ['A', 'A', 'E', 'E', 'Yi', 'Ya'],
-		prefixSyllables: ['n', 'm', 'l', 'r']
+		prefixConsonants: ['Ao', 'Ae', 'Ei', 'Eo', 'Yi', 'Ya'],
+		prefixSyllables: ['n', 'm', 'l', 'r'],
+		optionalPrefix: ['ob', 'ol', 'ok']
 	}
 }
 
 const generateGarg = () => {
 	const results = []
 	for (let i = 0; i < 20; i++) {
-		const sur = randFromArray(garg.surname.prefixConsonants)
-			+ randFromArray(garg.surname.prefixSyllables)
-			+ randFromArray(garg.surname.suffixes)
+		const sur = randomFromArray(garg.surname.prefixConsonants)
+			+ randomFromArray(garg.surname.prefixSyllables)
+			+ randomFromArray(garg.surname.suffixes)
+
+		const femaleOptionalPrefixSeed = randomInt(100)
+		const optionalPrefix = femaleOptionalPrefixSeed % 7 === 0 ? randomFromArray(garg.femaleNames.optionalPrefix) : ''
 
 		const rando =
-			randFromArray(garg.maleNames.prefixes)
-			+ randFromArray(garg.maleNames.suffixes)
+			randomFromArray(garg.maleNames.prefixes)
+			+ randomFromArray(garg.maleNames.suffixes)
 			+ ' '
 			+ sur
 			+ ' and '
-			+ randFromArray(garg.femaleNames.prefixConsonants)
-			+ randFromArray(garg.femaleNames.prefixSyllables)
+			+ randomFromArray(garg.femaleNames.prefixConsonants)
+			+ randomFromArray(garg.femaleNames.prefixSyllables)
+			+ optionalPrefix
 			+ ' '
 			+ sur
 
