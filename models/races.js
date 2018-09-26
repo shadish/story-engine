@@ -1,5 +1,6 @@
 
 const { randomFromArray, randomInt } = require('../utils/randomHelpers')
+const { guid } = require('../utils/guid')
 const { rollStats } = require('./stats')
 
 const garg = {
@@ -33,6 +34,7 @@ const getFemaleName = () => {
 		+ optionalPrefix
 
 	return {
+		id: guid(),
 		gender: 'female',
 		name,
 		surname: getSurname(),
@@ -44,6 +46,7 @@ const getMaleName = () => {
 	const name = randomFromArray(garg.maleNames.prefixes)
 		+ randomFromArray(garg.maleNames.suffixes)
 	return {
+		id: guid(),
 		gender: 'male',
 		name,
 		surname: getSurname(),
@@ -52,10 +55,9 @@ const getMaleName = () => {
 }
 
 const wed = (male, female) => {
-	return {
-		husband: { ...male, surname: female.surname },
-		wife: female
-	}
+	male.spouse = female.id
+	male.surname = female.surname
+	female.spouse = male.id
 }
 
 module.exports = { getSurname, getFemaleName, getMaleName, wed }

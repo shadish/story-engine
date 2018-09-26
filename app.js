@@ -19,16 +19,15 @@ app.get('/village', (req, res) => {
 
 	for (let i = 0; i < 5; i++) {
 		men.push(getMaleName())
-		women.push(getMaleName())
+		women.push(getFemaleName())
 	}
 
 	men = men.sort((a, b) => b.stats.CHR - a.stats.CHR)
 	women = women.sort((a, b) => b.stats.CHR - a.stats.CHR)
 
-	const lucky = wed(men[0], women[0])
+	wed(men[0], women[0])
 
 	res.send({
-		lucky,
 		men,
 		women
 	});
