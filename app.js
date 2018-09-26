@@ -1,4 +1,4 @@
-const { generateGarg } = require('./models/races')
+const { getSurname, getFemaleName, getMaleName, wed } = require('./models/races')
 const express = require('express')
 const app = express()
 
@@ -46,7 +46,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/garg', (req, res) => {
-	res.send(generateGarg());
+	const female = getFemaleName()
+	const male = getMaleName()
+	const couple = wed(male, female)
+
+	res.send(couple);
 })
 
 app.listen(3000, () => {

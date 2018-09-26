@@ -18,31 +18,41 @@ const garg = {
 	}
 }
 
-const generateGarg = () => {
-	const results = []
-	for (let i = 0; i < 20; i++) {
-		const sur = randomFromArray(garg.surname.prefixConsonants)
-			+ randomFromArray(garg.surname.prefixSyllables)
-			+ randomFromArray(garg.surname.suffixes)
-
-		const femaleOptionalPrefixSeed = randomInt(100)
-		const optionalPrefix = femaleOptionalPrefixSeed % 7 === 0 ? randomFromArray(garg.femaleNames.optionalPrefix) : ''
-
-		const rando =
-			randomFromArray(garg.maleNames.prefixes)
-			+ randomFromArray(garg.maleNames.suffixes)
-			+ ' '
-			+ sur
-			+ ' and '
-			+ randomFromArray(garg.femaleNames.prefixConsonants)
-			+ randomFromArray(garg.femaleNames.prefixSyllables)
-			+ optionalPrefix
-			+ ' '
-			+ sur
-
-		results.push(rando)
-	}
-	return results
+const getSurname = () => {
+	return randomFromArray(garg.surname.prefixConsonants)
+		+ randomFromArray(garg.surname.prefixSyllables)
+		+ randomFromArray(garg.surname.suffixes)
 }
 
-module.exports = { generateGarg }
+const getFemaleName = () => {
+	const femaleOptionalPrefixSeed = randomInt(100)
+	const optionalPrefix = femaleOptionalPrefixSeed % 7 === 0 ? randomFromArray(garg.femaleNames.optionalPrefix) : ''
+	const name = randomFromArray(garg.femaleNames.prefixConsonants)
+		+ randomFromArray(garg.femaleNames.prefixSyllables)
+		+ optionalPrefix
+
+	return {
+		gender: 'female',
+		name,
+		surname: getSurname()
+	}
+}
+
+const getMaleName = () => {
+	const name = randomFromArray(garg.maleNames.prefixes)
+		+ randomFromArray(garg.maleNames.suffixes)
+	return {
+		gender: 'male',
+		name,
+		surname: getSurname()
+	}
+}
+
+const wed = (male, female) => {
+	return {
+		husband: { ...male, surname: female.surname },
+		wife: female
+	}
+}
+
+module.exports = { getSurname, getFemaleName, getMaleName, wed }
