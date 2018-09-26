@@ -4,11 +4,6 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-	const response = rollStats();
-	res.send(response);
-})
-
-app.get('/garg', (req, res) => {
 	const female = getFemaleName()
 	const male = getMaleName()
 	const couple = wed(male, female)

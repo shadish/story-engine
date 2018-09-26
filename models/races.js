@@ -1,5 +1,6 @@
 
 const { randomFromArray, randomInt } = require('../utils/randomHelpers')
+const { rollStats } = require('./stats')
 
 const garg = {
 	surname: {
@@ -34,7 +35,8 @@ const getFemaleName = () => {
 	return {
 		gender: 'female',
 		name,
-		surname: getSurname()
+		surname: getSurname(),
+		stats: rollStats()
 	}
 }
 
@@ -44,7 +46,8 @@ const getMaleName = () => {
 	return {
 		gender: 'male',
 		name,
-		surname: getSurname()
+		surname: getSurname(),
+		stats: rollStats()
 	}
 }
 
