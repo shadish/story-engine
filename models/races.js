@@ -1,11 +1,5 @@
-const randomInt = (max) => {
-	return Math.floor(Math.random() * Math.floor(max));
-}
 
-const randomFromArray = (a) => {
-	const i = Math.floor(Math.random() * (a.length));
-	return a[i];
-}
+const { randomFromArray, randomInt } = require('../utils/randomHelpers')
 
 const garg = {
 	surname: {
@@ -51,4 +45,4 @@ const generateGarg = () => {
 	return results
 }
 
-//module.exports = { generateGarg }
+module.exports = { generateGarg }
