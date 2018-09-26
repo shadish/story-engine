@@ -7,4 +7,9 @@ const randomFromArray = (a) => {
 	return a[i];
 }
 
-module.exports = { randomInt, randomFromArray }
+const randomFromRange = (min, max) => {
+	const result = Math.random() * (max - min) + min;
+	return Math.round(result);
+}
+
+module.exports = { randomInt, randomFromArray, randomFromRange }
