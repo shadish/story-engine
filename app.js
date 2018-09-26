@@ -14,16 +14,16 @@ app.get('/', (req, res) => {
 
 app.get('/village', (req, res) => {
 
-	let men = []
-	let women = []
+	const men = []
+	const women = []
 
 	for (let i = 0; i < 5; i++) {
 		men.push(getMaleName())
 		women.push(getFemaleName())
 	}
 
-	men = men.sort((a, b) => b.stats.CHR - a.stats.CHR)
-	women = women.sort((a, b) => b.stats.CHR - a.stats.CHR)
+	men.sort((a, b) => b.stats.CHR - a.stats.CHR)
+	women.sort((a, b) => b.stats.CHR - a.stats.CHR)
 
 	wed(men[0], women[0])
 
