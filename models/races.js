@@ -1,4 +1,4 @@
-
+const { getProfession } = require('./professions')
 const { randomFromArray, randomInt } = require('../utils/randomHelpers')
 const { guid } = require('../utils/guid')
 const { rollStats } = require('./stats')
@@ -38,7 +38,8 @@ const getFemaleName = () => {
 		gender: 'female',
 		name,
 		surname: getSurname(),
-		stats: rollStats()
+		stats: rollStats(),
+		profession: getProfession()
 	}
 }
 
@@ -50,7 +51,8 @@ const getMaleName = () => {
 		gender: 'male',
 		name,
 		surname: getSurname(),
-		stats: rollStats()
+		stats: rollStats(),
+		profession: getProfession()
 	}
 }
 
