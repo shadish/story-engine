@@ -1,4 +1,4 @@
-const { randomFromArray, randomInt } = require('../utils/randomHelpers')
+const { randomFromArray } = require('../utils/randomHelpers')
 const { guid } = require('../utils/guid')
 
 const all = {
