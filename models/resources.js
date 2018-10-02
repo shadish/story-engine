@@ -1,5 +1,5 @@
 const getResources = () => {
-	return ['wheat', 'stone', 'pots', 'grass', 'berries', 'wood', 'cotton', 'barley', 'rice', 'corn', 'boar', 'deer', 'cow', 'clothes', 'beer', 'wine']
+	return ["barley", "beer", "berries", "boar", "clothes", "corn", "cotton", "cow", "deer", "grass", "pots", "rice", "stone", "wheat", "wine", "wood"]
 }
 
 module.exports = { getResources } 
