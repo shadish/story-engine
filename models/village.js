@@ -1,6 +1,7 @@
 const { getFemaleName, getMaleName, wed } = require('./races')
 const { randomFromArray } = require('../utils/randomHelpers')
 const { guid } = require('../utils/guid')
+const { getRelations } = require('./relations')
 
 const getName = () => {
 	const prefixes = ['Rock', 'Lake', 'Tree', 'Sky', 'Fish']
@@ -19,6 +20,8 @@ const getVillage = () => {
 
 	men.sort((a, b) => b.stats.CHR - a.stats.CHR)
 	women.sort((a, b) => b.stats.CHR - a.stats.CHR)
+
+	men.forEach(m => getRelations(m, men))
 
 	wed(men[0], women[0])
 
