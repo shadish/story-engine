@@ -12,18 +12,29 @@ const getName = () => {
 const getVillage = () => {
 	const men = []
 	const women = []
+	const all = []
 
 	for (let i = 0; i < 5; i++) {
-		men.push(getMaleName())
-		women.push(getFemaleName())
+		const m = getMaleName()
+		const w = getFemaleName()
+		men.push(m)
+		women.push(w)
+		//TODO: obviously not this, it is late and all this is temporary
+		all.push(m)
+		all.push(w)
 	}
 
 	men.sort((a, b) => b.stats.CHR - a.stats.CHR)
 	women.sort((a, b) => b.stats.CHR - a.stats.CHR)
 
-	men.forEach(m => getRelations(m, men))
+	men.forEach(m => getRelations(m, all))
+	women.forEach(m => getRelations(m, all))
 
 	wed(men[0], women[0])
+	men[0].relations[women[0].id].affinity += 1
+	men[0].relations[women[0].id].familiarity += 1
+	women[0].relations[men[0].id].affinity += 1
+	women[0].relations[men[0].id].familiarity += 1
 
 	return {
 		id: guid(),
