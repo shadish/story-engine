@@ -31,10 +31,6 @@ const getVillage = () => {
 	women.forEach(m => getRelations(m, all))
 
 	wed(men[0], women[0])
-	men[0].relations[women[0].id].affinity += 1
-	men[0].relations[women[0].id].familiarity += 1
-	women[0].relations[men[0].id].affinity += 1
-	women[0].relations[men[0].id].familiarity += 1
 
 	return {
 		id: guid(),

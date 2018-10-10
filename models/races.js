@@ -60,6 +60,12 @@ const wed = (male, female) => {
 	male.spouse = female.id
 	male.surname = female.surname
 	female.spouse = male.id
+
+	male.relations[female.id].affinity += 1
+	male.relations[female.id].familiarity += 1
+	female.relations[male.id].affinity += 1
+	female.relations[male.id].familiarity += 1
+
 }
 
 module.exports = { getSurname, getFemaleName, getMaleName, wed }
